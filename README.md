@@ -13,14 +13,14 @@ assets/css/site.css     page styles — the design's inline styles as classes
 assets/fonts/*.woff2    self-hosted Archivo, Poppins, Libre Baskerville,
                         Bricolage Grotesque
 assets/img/             logo.svg, logo-mark.svg (mark is the favicon)
-.github/workflows/      deploys the repo root to GitHub Pages on push to main
+netlify.toml            publish the repo root as-is, no build command
 ```
 
-## Deploying
+## Hosting
 
-Every push to `main` runs `.github/workflows/deploy.yml`, which publishes the
-repo root to GitHub Pages. To point `lomy.studio` at it, add the domain under
-Settings → Pages → Custom domain and set a CNAME at your DNS provider.
+The site is hosted on Netlify (project `lomy-studio`, team `el-omar`), linked
+to this repository: every push to `main` deploys automatically. `netlify.toml`
+tells Netlify to publish the repo root with no build step.
 
 ## Serving locally
 
