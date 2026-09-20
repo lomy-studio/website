@@ -1,0 +1,101 @@
+/* Lomy Studio design system.
+ * Generated from the Claude Design handoff bundle (project/assets/fonts/fonts.css,
+ * project/tokens/*.css). Do not hand-edit — re-copy from the design system instead.
+ * Page-level styles live in site.css.
+ */
+
+/* ---------- fonts ---------- */
+@font-face{font-family:'Archivo';font-style:italic;font-weight:400;font-display:swap;src:url('../fonts/archivo-400-italic.woff2') format('woff2')}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/archivo-400.woff2') format('woff2')}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/archivo-500.woff2') format('woff2')}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/archivo-600.woff2') format('woff2')}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/archivo-700.woff2') format('woff2')}
+@font-face{font-family:'Libre Baskerville';font-style:italic;font-weight:400;font-display:swap;src:url('../fonts/libre-baskerville-400-italic.woff2') format('woff2')}
+@font-face{font-family:'Libre Baskerville';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/libre-baskerville-400.woff2') format('woff2')}
+@font-face{font-family:'Libre Baskerville';font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/libre-baskerville-700.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/poppins-500.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/poppins-600.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/poppins-700.woff2') format('woff2')}
+@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/bricolage-grotesque-700.woff2') format('woff2')}
+@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:800;font-display:swap;src:url('../fonts/bricolage-grotesque-800.woff2') format('woff2')}
+
+/* ---------- tokens: colors ---------- */
+/* Lomy Studio — color tokens. Light is default; dark via [data-theme="dark"]. */
+:root{
+/* base palette */
+--paper-1:#FAF4F0;--paper-2:#F4EBE4;--paper-3:#EBDFD5;
+--ink-1:#1C1917;--ink-2:#57534C;--ink-3:#8D8779;
+--coral:#EE7867;--coral-deep:#DE5F4D;--coral-tint:#FBE5E0;
+--olive:#6E6B3F;--gold:#B07C24;--rust:#9C3325;
+/* semantic */
+--surface-page:var(--paper-1);--surface-card:var(--paper-1);--surface-sunken:var(--paper-2);--surface-inverse:var(--ink-1);
+--text-heading:var(--ink-1);--text-body:var(--ink-1);--text-muted:var(--ink-2);--text-faint:var(--ink-3);--text-inverse:var(--paper-1);
+--accent:var(--coral);--accent-hover:var(--coral-deep);--accent-tint:var(--coral-tint);--on-accent:#1C1917;
+--border-subtle:rgba(28,25,23,.14);--border-strong:rgba(28,25,23,.55);--focus-ring:var(--coral);
+--ok:#587841;--warn:var(--gold);--danger:var(--rust);
+}
+[data-theme="dark"]{
+--paper-1:#151312;--paper-2:#1E1B19;--paper-3:#282420;
+--ink-1:#F0EAE0;--ink-2:#B5AEA2;--ink-3:#7E7869;
+--coral:#F08A77;--coral-deep:#F49E8D;--coral-tint:#3D211C;
+--surface-inverse:#F0EAE0;--text-inverse:#151312;--on-accent:#151312;
+--border-subtle:rgba(240,234,224,.16);--border-strong:rgba(240,234,224,.55);
+--ok:#7FA268;--warn:#C99A4B;--danger:#C25644;
+}
+
+/* ---------- tokens: typography ---------- */
+/* Lomy Studio — type tokens. Poppins bold for headings, Libre Baskerville italic for accent words, Archivo for body. */
+:root{
+--font-logo:'Bricolage Grotesque','Poppins','Helvetica Neue',Arial,sans-serif;
+--font-heading:'Poppins','Helvetica Neue',Arial,sans-serif;
+--font-display:'Libre Baskerville',Georgia,'Times New Roman',serif;
+--font-body:'Archivo','Helvetica Neue',Arial,sans-serif;
+/* scale */
+--text-xs:0.75rem;--text-sm:0.875rem;--text-base:1rem;--text-lg:1.125rem;--text-xl:1.375rem;
+--text-2xl:1.75rem;--text-3xl:2.25rem;--text-4xl:3rem;--text-5xl:4rem;--text-6xl:5.5rem;
+/* leading */
+--leading-tight:1.1;--leading-display:1.15;--leading-snug:1.35;--leading-body:1.6;
+/* tracking */
+--tracking-display:-0.02em;--tracking-body:0;--tracking-eyebrow:0.16em;
+/* weights (Archivo) */
+--weight-regular:400;--weight-medium:500;--weight-semibold:600;--weight-bold:700;
+}
+
+/* ---------- tokens: spacing ---------- */
+/* Lomy Studio — spacing, radii, layout tokens. */
+:root{
+--space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.5rem;
+--space-6:2rem;--space-7:3rem;--space-8:4rem;--space-9:6rem;--space-10:8rem;
+/* radii: the brand is near-square; pill reserved for chips */
+--radius-xs:2px;--radius-sm:4px;--radius-md:8px;--radius-pill:999px;
+--container-max:72rem;--container-narrow:44rem;
+--gutter:clamp(1.25rem,4vw,3rem); /* @kind spacing */
+}
+
+/* ---------- tokens: effects ---------- */
+/* Lomy Studio — borders, shadows, motion. */
+:root{
+--border-w:1px;--border-w-strong:1.5px;
+--shadow-card:0 1px 2px rgba(28,25,23,.05),0 10px 30px -12px rgba(28,25,23,.12);
+--shadow-pop:0 2px 6px rgba(28,25,23,.08),0 24px 60px -20px rgba(28,25,23,.25);
+--ease-soft:cubic-bezier(.22,.61,.36,1); /* @kind other */
+--ease-inout:cubic-bezier(.65,0,.35,1); /* @kind other */
+--dur-fast:160ms; /* @kind other */
+--dur-med:320ms; /* @kind other */
+--dur-reveal:700ms; /* @kind other */
+}
+[data-theme="dark"]{
+--shadow-card:0 1px 2px rgba(0,0,0,.4),0 10px 30px -12px rgba(0,0,0,.5);
+--shadow-pop:0 2px 6px rgba(0,0,0,.5),0 24px 60px -20px rgba(0,0,0,.7);
+}
+
+/* ---------- base element defaults ---------- */
+/* Lomy Studio — base element defaults for consumers. */
+body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-body);font-size:var(--text-base);line-height:var(--leading-body);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--font-heading);font-weight:700;color:var(--text-heading);letter-spacing:var(--tracking-display);line-height:var(--leading-display);margin:0}
+h4,h5,h6{font-family:var(--font-heading);font-weight:var(--weight-semibold);color:var(--text-heading);margin:0}
+h1 em,h2 em,h3 em{font-family:var(--font-display);font-style:italic;font-weight:400;color:inherit;letter-spacing:0}
+a{color:var(--text-body);text-decoration:underline;text-decoration-color:var(--border-strong);text-underline-offset:3px;transition:color var(--dur-fast) var(--ease-soft),text-decoration-color var(--dur-fast) var(--ease-soft)}
+a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+::selection{background:var(--accent-tint);color:var(--ink-1)}
+:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}

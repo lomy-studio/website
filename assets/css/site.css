@@ -1,0 +1,631 @@
+/* Lomy Studio — marketing site page styles.
+ * Implements templates/marketing-site/MarketingSite.dc.html. Every value here is
+ * taken verbatim from that design; the only additions are the responsive rules
+ * at the bottom (the design ships desktop-only) and reduced-motion handling.
+ */
+
+/* ---------- page shell ---------- */
+
+:root {
+  /* Height the sticky header reserves for anchor scrolling. The design says
+     64px; the header measures 69px, so 72px is used to keep section tops clear
+     of the bar (the chat asked for anchors to land under the menu). Grows on
+     small screens where the nav wraps onto a second row. */
+  --header-h: 72px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.wrap {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.section {
+  padding-top: var(--space-9);
+}
+
+.section[id] {
+  scroll-margin-top: var(--header-h);
+}
+
+.eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: var(--weight-medium);
+  margin-bottom: var(--space-4);
+}
+
+.u-coral {
+  color: var(--coral);
+}
+
+/* ---------- buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: var(--weight-medium);
+  border-radius: var(--radius-xs);
+  text-decoration: none;
+  transition: all var(--dur-fast) var(--ease-soft);
+}
+
+.btn--primary {
+  padding: 12px 22px;
+  font-size: 15px;
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn--primary:hover {
+  background: var(--accent-hover);
+  color: var(--on-accent);
+}
+
+.btn--ghost {
+  padding: 12px 22px;
+  font-size: 15px;
+  border: 1px solid var(--border-strong);
+  color: var(--text-body);
+}
+
+.btn--ghost-sm {
+  padding: 8px 14px;
+  font-size: var(--text-sm);
+  border: 1px solid var(--border-strong);
+  color: var(--text-body);
+}
+
+.btn--ghost:hover,
+.btn--ghost-sm:hover {
+  background: var(--surface-inverse);
+  border-color: var(--surface-inverse);
+  color: var(--text-inverse);
+}
+
+/* ---------- logo lockup ---------- */
+
+.logo {
+  text-decoration: none;
+  line-height: 1;
+}
+
+.logo__lockup {
+  display: inline-grid;
+  justify-items: start;
+  line-height: 1;
+}
+
+.logo__word {
+  font-family: var(--font-logo);
+  font-weight: 800;
+  font-size: 21px;
+  letter-spacing: -0.02em;
+  color: var(--text-heading);
+}
+
+.logo__dot {
+  color: var(--accent);
+}
+
+.logo__sub {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 6px;
+  letter-spacing: 0.42em;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+.logo--sm .logo__word {
+  font-size: 18px;
+}
+
+.logo--sm .logo__sub {
+  font-size: 5.5px;
+}
+
+/* ---------- header ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in srgb, var(--surface-page) 85%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.site-header__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 14px var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.site-nav {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-size: var(--text-sm);
+  padding: 7px 11px;
+  color: var(--text-muted);
+}
+
+.site-nav a:hover {
+  color: var(--accent);
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  text-align: center;
+}
+
+.hero__headline {
+  position: relative;
+  display: inline-block;
+}
+
+.hero__circle {
+  position: absolute;
+  right: -80px;
+  top: -46px;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.hero h1 {
+  position: relative;
+  font-size: clamp(2.75rem, 6vw, var(--text-5xl));
+  line-height: var(--leading-display);
+}
+
+.hero__lede {
+  max-width: 52ch;
+  margin: var(--space-5) auto var(--space-6);
+  font-size: var(--text-lg);
+  color: var(--text-muted);
+}
+
+.hero__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+/* ---------- marquee ---------- */
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: var(--space-9);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: var(--text-3xl);
+  color: var(--text-faint);
+  opacity: 0.5;
+}
+
+.marquee__track {
+  display: inline-block;
+  animation: lomy-mq 32s linear infinite;
+}
+
+@keyframes lomy-mq {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- services ---------- */
+
+.services h2 {
+  font-size: var(--text-3xl);
+  max-width: 20ch;
+  margin-bottom: var(--space-6);
+}
+
+.rows {
+  display: grid;
+}
+
+.service {
+  display: grid;
+  grid-template-columns: 90px 1fr 1.2fr;
+  gap: var(--space-5);
+  align-items: baseline;
+  padding: var(--space-5) 4px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.service:last-child {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.service__num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-xl);
+  color: var(--accent);
+}
+
+.service__title {
+  font-size: var(--text-xl);
+}
+
+.service__body {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* ---------- process (dark band) ---------- */
+
+.process {
+  background: var(--surface-inverse);
+  color: var(--text-inverse);
+  margin-top: var(--space-9);
+  scroll-margin-top: var(--header-h);
+}
+
+.process__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-9) var(--gutter);
+}
+
+.process .eyebrow {
+  color: var(--text-inverse);
+  opacity: 0.55;
+}
+
+.process h2 {
+  font-size: var(--text-3xl);
+  color: var(--text-inverse);
+  margin-bottom: var(--space-8);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+.step {
+  border-top: 1px solid rgba(240, 234, 224, 0.25);
+  padding-top: var(--space-6);
+}
+
+.step__head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.step__num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-3xl);
+  color: var(--coral);
+  line-height: 1;
+}
+
+.step__label {
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.step h3 {
+  font-size: var(--text-xl);
+  color: var(--text-inverse);
+  margin-top: var(--space-5);
+}
+
+.step p {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-body);
+  opacity: 0.65;
+  max-width: 34ch;
+}
+
+/* ---------- why us ---------- */
+
+.why {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.why h2 {
+  font-size: var(--text-3xl);
+  max-width: 14ch;
+}
+
+.why__lede {
+  max-width: 42ch;
+  color: var(--text-muted);
+  margin: var(--space-4) 0 0;
+}
+
+.claim {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-5);
+  align-items: baseline;
+  padding: var(--space-5) 4px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.claim:last-child {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.claim__marker {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-xl);
+  color: var(--accent);
+  width: 40px;
+}
+
+.claim h3 {
+  font-size: var(--text-lg);
+}
+
+.claim p {
+  margin: 6px 0 0;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* ---------- testimonial ---------- */
+
+.testimonial {
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+  padding: var(--space-10) var(--gutter) 0;
+  text-align: center;
+}
+
+.testimonial__quote-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.testimonial__circle {
+  position: absolute;
+  left: -56px;
+  top: -34px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--accent-tint);
+}
+
+.testimonial blockquote {
+  position: relative;
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-2xl);
+  line-height: var(--leading-snug);
+  color: var(--text-heading);
+}
+
+.testimonial__cite {
+  margin-top: var(--space-5);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* ---------- CTA ---------- */
+
+.cta__card {
+  background: var(--surface-inverse);
+  color: var(--text-inverse);
+  border-radius: var(--radius-sm);
+  padding: var(--space-8);
+}
+
+.cta__card h2 {
+  font-size: var(--text-3xl);
+  max-width: 18ch;
+  color: var(--text-inverse);
+}
+
+.cta__card p {
+  max-width: 48ch;
+  opacity: 0.7;
+  margin: var(--space-4) 0 var(--space-6);
+}
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-8) var(--gutter) var(--space-6);
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.site-footer__tagline {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.site-footer__nav {
+  display: flex;
+  gap: var(--space-5);
+  font-size: var(--text-sm);
+}
+
+.site-footer__nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.site-footer__nav a:hover {
+  color: var(--accent);
+}
+
+.site-footer__legal {
+  width: 100%;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+}
+
+/* ---------- responsive ----------
+   Not in the source design (desktop-only). Desktop rendering above 900px is
+   untouched; below that the multi-column rows stack and the decorative
+   circles scale so they stay behind their headings. */
+
+@media (max-width: 900px) {
+  .service {
+    grid-template-columns: 56px 1fr;
+    gap: var(--space-4);
+  }
+
+  .service__num {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .service__title {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .service__body {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: var(--space-3);
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .step p {
+    max-width: 52ch;
+  }
+
+  .why {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .why h2 {
+    max-width: 20ch;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --header-h: 120px;
+  }
+
+  .site-header__inner {
+    flex-wrap: wrap;
+    gap: 14px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .site-nav {
+    order: 3;
+    width: 100%;
+    flex: 0 0 100%;
+    gap: 2px;
+    margin-left: -11px;
+  }
+
+  .marquee {
+    font-size: var(--text-2xl);
+  }
+
+  .cta__card {
+    padding: var(--space-6);
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .site-footer__nav {
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero__circle {
+    right: -28px;
+    top: -26px;
+    width: 104px;
+    height: 104px;
+  }
+
+  .hero__actions {
+    flex-wrap: wrap;
+  }
+
+  .testimonial__circle {
+    left: -22px;
+    top: -20px;
+    width: 88px;
+    height: 88px;
+  }
+
+  .claim {
+    grid-template-columns: 28px 1fr;
+    gap: var(--space-4);
+  }
+
+  .claim__marker {
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee__track {
+    animation: none;
+  }
+}
