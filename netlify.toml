@@ -2,3 +2,9 @@
 [build]
   publish = "."
   command = ""
+
+# Clean URL for the contact page.
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200

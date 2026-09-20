@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Lomy Studio</title>
+<meta name="description" content="Have a campaign in mind, or just want to chat? Tell Lomy Studio about what you're launching. We reply within two working days.">
+<link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact — Lomy Studio">
+<meta property="og:description" content="Have a campaign in mind, or just want to chat? We reply within two working days.">
+<link rel="preload" href="assets/fonts/archivo-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/ds.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="page--contact">
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="logo" href="/" aria-label="Lomy Studio — home">
+      <span class="logo__lockup">
+        <span class="logo__word">Lomy<span class="logo__dot">.</span></span>
+        <span class="logo__sub">STUDIO</span>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/#services">Services</a>
+      <a href="/#process">How we work</a>
+      <a href="/contact" class="is-active" aria-current="page">Contact</a>
+    </nav>
+    <a class="btn btn--ghost-sm" href="mailto:info@lomy.studio">info@lomy.studio</a>
+  </div>
+</header>
+
+<main class="contact wrap">
+  <div>
+    <div class="contact__headline">
+      <div class="contact__circle" aria-hidden="true"></div>
+      <div class="eyebrow contact__eyebrow">Contact</div>
+      <h1>Let's create something <em>together</em></h1>
+    </div>
+    <p class="contact__lede">Have a campaign in mind, or just want to chat? We're always open to new ideas and collaborations. We reply within two working days.</p>
+    <div class="contact__links">
+      <a href="mailto:info@lomy.studio">info@lomy.studio</a>
+      <a href="#">Lomy Studio on LinkedIn</a>
+      <a href="#">@lomy.studio on Instagram</a>
+      <span class="contact__location">Belgium and remote</span>
+    </div>
+  </div>
+
+  <div class="contact__card">
+    <div class="contact-done" hidden>
+      <h3>Thank you — <em>noted</em></h3>
+      <p>We'll get back to you within two working days.</p>
+      <button type="button" class="btn btn--ghost">Send another</button>
+    </div>
+
+    <form class="contact-form" name="contact" method="POST" action="/contact?sent=1" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <p class="contact-form__trap" aria-hidden="true">
+        <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+      </p>
+
+      <fieldset class="who">
+        <legend class="who__legend">What best describes you?</legend>
+        <div class="who__choices">
+          <label class="who__choice"><input type="radio" name="who" value="Brand" checked><span class="chip">Brand</span></label>
+          <label class="who__choice"><input type="radio" name="who" value="Influencer"><span class="chip">Influencer</span></label>
+          <label class="who__choice"><input type="radio" name="who" value="Other"><span class="chip">Other</span></label>
+        </div>
+      </fieldset>
+
+      <div class="contact-form__row">
+        <label class="field">Name
+          <input class="control" name="name" required placeholder="Your name" autocomplete="name">
+        </label>
+        <label class="field">Email
+          <input class="control" name="email" type="email" required placeholder="name@company.com" autocomplete="email">
+        </label>
+      </div>
+
+      <label class="field">Budget
+        <select class="control control--select" name="budget">
+          <option>Not sure yet</option>
+          <option>Under €10k</option>
+          <option>€10–50k</option>
+          <option>€50k+</option>
+        </select>
+      </label>
+
+      <label class="field">The campaign
+        <textarea class="control" name="message" rows="4" placeholder="Tell us a little about what you're launching"></textarea>
+      </label>
+
+      <button type="submit" class="btn btn--primary contact-form__submit">Send message →</button>
+    </form>
+  </div>
+</main>
+
+<section class="faq wrap">
+  <h2>Before you <em>ask</em></h2>
+  <div class="faq__list">
+    <div class="faq__row">
+      <h3>Do you work with small brands?</h3>
+      <p>Yes. Good matches matter more than big budgets.</p>
+    </div>
+    <div class="faq__row">
+      <h3>How long does a campaign take?</h3>
+      <p>As short as 3 weeks from first call to final report, depending on production.</p>
+    </div>
+    <div class="faq__row">
+      <h3>Do you work with media buyers?</h3>
+      <p>No. You get one point of contact and direct access to our creators, brands, and partners — no layers in between.</p>
+    </div>
+    <div class="faq__row">
+      <h3>Can you just find us creators?</h3>
+      <p>Yes. Matchmaking is available on its own — you get the shortlist and the introductions.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer site-footer--flush">
+  <span class="logo logo--sm">
+    <span class="logo__lockup">
+      <span class="logo__word">Lomy<span class="logo__dot">.</span></span>
+      <span class="logo__sub">STUDIO</span>
+    </span>
+  </span>
+  <span class="site-footer__tagline">Influencer marketing, quietly done well.</span>
+  <nav class="site-footer__nav" aria-label="Footer">
+    <a href="/">Home</a>
+    <a href="mailto:info@lomy.studio">info@lomy.studio</a>
+  </nav>
+  <div class="site-footer__legal">© 2026 Lomy Studio. All rights reserved.</div>
+</footer>
+
+<script>
+(() => {
+  const form = document.querySelector('.contact-form');
+  const done = document.querySelector('.contact-done');
+  const submit = form.querySelector('button[type="submit"]');
+
+  const showDone = () => { form.hidden = true; done.hidden = false; };
+  const showForm = () => { done.hidden = true; form.hidden = false; };
+
+  // No-JS fallback lands here after Netlify accepts the POST.
+  if (new URLSearchParams(location.search).get('sent') === '1') {
+    showDone();
+    history.replaceState(null, '', location.pathname);
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submit.disabled = true;
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString(),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      form.reset();
+      showDone();
+    } catch {
+      form.submit(); // let Netlify handle it the plain way
+    } finally {
+      submit.disabled = false;
+    }
+  });
+
+  done.querySelector('button').addEventListener('click', showForm);
+})();
+</script>
+</body>
+</html>

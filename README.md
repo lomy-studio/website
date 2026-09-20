@@ -5,8 +5,9 @@ Studio design system (Claude Design handoff bundle). No build step, no
 dependencies: open `index.html` or serve the folder.
 
 ```
-index.html              one page: header, hero, marquee, services, process,
+index.html              home: header, hero, marquee, services, process,
                         why us, testimonial, CTA, footer
+contact.html            /contact: form (Netlify Forms), studio links, FAQ
 assets/css/ds.css       design-system CSS, generated from the bundle
                         (fonts.css + tokens/*.css + base.css, concatenated)
 assets/css/site.css     page styles — the design's inline styles as classes
@@ -46,8 +47,13 @@ subject to the browser's local-file rules — prefer the server.
   letterspaced STUDIO beneath), matching the design. `assets/img/logo.svg` is
   the same lockup as a file — it also uses live text, so outline the type before
   sending it to a print vendor.
-- "Start a campaign" links point at the on-page `#contact` CTA. The design
-  also had a contact-page template, which is not part of this build.
+- "Start a campaign" links go to `/contact` (a `netlify.toml` rewrite maps it
+  to `contact.html`). The contact form posts to Netlify Forms (`name="contact"`,
+  honeypot `bot-field`); JS submits it in place and shows the thank-you state,
+  and without JS Netlify redirects back to `/contact?sent=1`, which shows the
+  same state. Submissions appear under Forms in the Netlify project.
+- The Budget select carries the design system's chevron-down icon; the contact
+  design itself drew no arrow.
 - Dark mode: the tokens ship a `[data-theme="dark"]` block, and `<html>` carries
   `data-theme="light"`. Switching the attribute mostly works, but the design was
   only tuned for light — the dark process band's hairline is a hardcoded

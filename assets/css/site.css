@@ -629,3 +629,337 @@ html {
     animation: none;
   }
 }
+
+/* =====================================================================
+   Contact page — implements templates/contact-page/ContactPage.dc.html.
+   Values verbatim from the design; responsive rules are an addition.
+   ===================================================================== */
+
+[hidden] {
+  display: none !important;
+}
+
+.page--contact {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-nav a.is-active {
+  color: var(--text-heading);
+  font-weight: var(--weight-medium);
+  border-bottom: 2px solid var(--text-heading);
+}
+
+.site-nav a.is-active:hover {
+  color: var(--text-heading);
+}
+
+.contact {
+  padding-top: var(--space-8);
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: var(--space-8);
+  align-items: start;
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact__headline {
+  position: relative;
+  display: inline-block;
+}
+
+.contact__circle {
+  position: absolute;
+  left: -40px;
+  top: -26px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.contact__eyebrow {
+  position: relative;
+  color: var(--ink-1);
+}
+
+.contact h1 {
+  position: relative;
+  font-size: clamp(2.25rem, 4.5vw, var(--text-4xl));
+  max-width: 14ch;
+}
+
+.contact__lede {
+  max-width: 44ch;
+  color: var(--text-muted);
+  margin: var(--space-4) 0 var(--space-6);
+}
+
+.contact__links {
+  display: grid;
+  gap: 14px;
+  font-size: var(--text-sm);
+}
+
+.contact__location {
+  color: var(--text-muted);
+}
+
+.contact__card {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--space-6);
+  background: var(--surface-card);
+}
+
+/* thank-you state */
+
+.contact-done {
+  text-align: center;
+  padding: var(--space-7) 0;
+}
+
+.contact-done h3 {
+  font-size: var(--text-2xl);
+}
+
+.contact-done p {
+  color: var(--text-muted);
+  margin: 12px 0 24px;
+}
+
+.contact-done .btn {
+  background: transparent;
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+/* form */
+
+.contact-form {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.contact-form__trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.who {
+  display: grid;
+  gap: 8px;
+  font-size: var(--text-sm);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.who__legend {
+  font-weight: var(--weight-medium);
+  color: var(--text-heading);
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+.who__choices {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.who__choice {
+  cursor: pointer;
+  position: relative;
+}
+
+.who__choice input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  transition: all var(--dur-fast) var(--ease-soft);
+}
+
+.chip:hover {
+  border-color: var(--border-strong);
+  color: var(--text-body);
+}
+
+.who__choice input:checked + .chip {
+  background: var(--surface-inverse);
+  border-color: var(--surface-inverse);
+  color: var(--text-inverse);
+}
+
+.who__choice input:focus-visible + .chip {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-heading);
+}
+
+.control {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--surface-page);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  padding: 11px 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-body);
+  font-weight: var(--weight-regular);
+  transition: border-color var(--dur-fast) var(--ease-soft);
+}
+
+.control::placeholder {
+  color: var(--text-faint);
+}
+
+.control:hover {
+  border-color: var(--border-strong);
+}
+
+.control:focus {
+  outline: none;
+  border-color: var(--border-strong);
+}
+
+.control--select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  /* chevron is the design system's Lucide chevron-down; the DS Select reserves
+     38px on the right for it */
+  padding-right: 38px;
+  background-image: url("../img/chevron-down.svg");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 18px 18px;
+}
+
+textarea.control {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.contact-form__submit {
+  justify-self: start;
+  font-family: var(--font-body);
+  border: none;
+  cursor: pointer;
+}
+
+.contact-form__submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* FAQ */
+
+.faq {
+  padding-top: var(--space-9);
+  width: 100%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.faq h2 {
+  font-size: var(--text-2xl);
+}
+
+.faq__list {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.faq__row {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-5);
+  padding: var(--space-5) 4px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.faq__row h3 {
+  font-size: var(--text-base);
+}
+
+.faq__row p {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* footer variant: contact page footer has the gap above it as margin */
+
+.site-footer--flush {
+  margin-top: var(--space-9);
+  padding-top: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* responsive additions */
+
+@media (max-width: 900px) {
+  .contact {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .faq {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+}
+
+@media (max-width: 640px) {
+  .contact__circle {
+    left: -22px;
+    top: -18px;
+    width: 96px;
+    height: 96px;
+  }
+
+  .contact-form__row {
+    grid-template-columns: 1fr;
+  }
+
+  .faq__row {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+}
