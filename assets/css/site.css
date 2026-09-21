@@ -9,8 +9,7 @@
 :root {
   /* Height the sticky header reserves for anchor scrolling. The design says
      64px; the header measures 69px, so 72px is used to keep section tops clear
-     of the bar (the chat asked for anchors to land under the menu). Grows on
-     small screens where the nav wraps onto a second row. */
+     of the bar (the chat asked for anchors to land under the menu). */
   --header-h: 72px;
 }
 
@@ -170,10 +169,17 @@ html {
   color: var(--accent);
 }
 
+.mobile-nav {
+  display: none;
+}
+
 /* ---------- hero ---------- */
 
 .hero {
   text-align: center;
+  /* own stacking context so the circle can sit beneath every hero element */
+  position: relative;
+  isolation: isolate;
 }
 
 .hero__headline {
@@ -189,6 +195,7 @@ html {
   height: 170px;
   border-radius: 50%;
   background: var(--accent);
+  z-index: -1; /* behind the title, the subtitle and the buttons */
 }
 
 .hero h1 {
@@ -552,23 +559,34 @@ html {
 }
 
 @media (max-width: 760px) {
-  :root {
-    --header-h: 120px;
+  /* one-line header: logo + the two-link mobile nav; the full nav and the
+     header button are desktop-only */
+  .site-nav,
+  .site-header__cta {
+    display: none;
   }
 
-  .site-header__inner {
-    flex-wrap: wrap;
-    gap: 14px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+  .mobile-nav {
+    display: flex;
+    gap: 6px;
+    margin-left: auto;
   }
 
-  .site-nav {
-    order: 3;
-    width: 100%;
-    flex: 0 0 100%;
-    gap: 2px;
-    margin-left: -11px;
+  .mobile-nav a {
+    text-decoration: none;
+    font-size: var(--text-sm);
+    padding: 7px 11px;
+    color: var(--text-muted);
+  }
+
+  .mobile-nav a:hover {
+    color: var(--accent);
+  }
+
+  .mobile-nav a.is-active {
+    color: var(--text-heading);
+    font-weight: var(--weight-medium);
+    border-bottom: 2px solid var(--text-heading);
   }
 
   .marquee {
